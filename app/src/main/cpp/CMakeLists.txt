@@ -14,14 +14,17 @@ project("jni")
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+# cpp 文件在这里添加
 add_library( # Sets the name of the library.
-             native-lib
+        #[[native-simple-lib]] native-advanced-lib
 
              # Sets the library as a shared library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             native-lib.cpp )
+        native-simple-lib.cpp
+
+        native-advanced-lib.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -41,8 +44,6 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-                       native-lib
+        #[[native-simple-lib]] native-advanced-lib
 
-                       # Links the target library to the log library
-                       # included in the NDK.
                        ${log-lib} )

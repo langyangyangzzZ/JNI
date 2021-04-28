@@ -1,4 +1,4 @@
-#include "com_example_jni_MainActivity.h"
+#include "com_example_jni_activity_SimpleActivity.h"
 
 //NDK 工具链中的 log库
 #include <android/log.h>
@@ -23,7 +23,7 @@ jstring // java中方法的返回值,
 JNICALL//表示是 JIN 的标记(这个可以去掉)
 
 //函数名,由 JDK设计的(JNI 是 java 的技术,不是 native 的技术)
-Java_com_example_jni_MainActivity_getString
+Java_com_example_jni_activity_SimpleActivity_getString
         (JNIEnv *env, jobject job) {
     /**
      * 参数一:(JNIEnv):是 Java 与 C/C++通信最重要的东西(精华)
@@ -37,7 +37,7 @@ Java_com_example_jni_MainActivity_getString
 //TODO 获取 java 的属性name,修改为"李四"
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_jni_MainActivity_changeName(JNIEnv *env, jobject thiz) {
+Java_com_example_jni_activity_SimpleActivity_changeName(JNIEnv *env, jobject thiz) {
     /**
      *  获取 class
      */
@@ -88,7 +88,7 @@ Java_com_example_jni_MainActivity_changeName(JNIEnv *env, jobject thiz) {
 //TODO 获取静态属性Age,修改年龄+10
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_jni_MainActivity_changeAge(JNIEnv *env, jclass clazz) {
+Java_com_example_jni_activity_SimpleActivity_changeAge(JNIEnv *env, jclass clazz) {
     /**
      * 参数三:基本类型签名(int 对应 I)
      */
@@ -119,7 +119,7 @@ Java_com_example_jni_MainActivity_changeAge(JNIEnv *env, jclass clazz) {
 //TODO  调用 java 层的方法
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_example_jni_MainActivity_nativeAdd(JNIEnv *env, jobject thiz) {
+Java_com_example_jni_activity_SimpleActivity_nativeAdd(JNIEnv *env, jobject thiz) {
     /**
      * 通过 jobject 获取 jclass
      * jclass GetObjectClass(jobject obj)
@@ -154,13 +154,12 @@ Java_com_example_jni_MainActivity_nativeAdd(JNIEnv *env, jobject thiz) {
  * 签名:
  * java 的 boolean  --- Z  注意!
  * java 的 short  --- S
- * java 的 int  --- Z
+ * java 的 int  --- I
  * java 的 byte  --- B
  * java 的 double  --- D
  * java 的 float  --- F
  * java 的 char  --- C
  * java 的  long  --- J  注意!
- * java 的 boolean  --- Z
  * java 的 对象  --- L 包名/类名; (;一定要加!!)
  *                    例如:String Ljava/lang/String;
  * java 中的 array int[]  ---- [I
