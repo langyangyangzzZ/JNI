@@ -16,16 +16,24 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags ""
-            }
-        }
-    }
-        sourceSets {
-            main {
-                jniLibs.srcDirs = ['libs']
+//                cppFlags "" //默认五大平台
+                //TODO 第四步:指定 CPU 架构 CMake本地库
+                abiFilters "armeabi-v7a"
             }
         }
 
+        //TODO 第五步:指定 CPU架构 打入 apk 文件
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    //这段代码是自带的
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['libs']
+//        }
+//    }
 
     buildTypes {
         release {
@@ -55,4 +63,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //TODO 第六步:导入 fmod 并且同步
+    implementation files("libs\\fmod.jar")
 }

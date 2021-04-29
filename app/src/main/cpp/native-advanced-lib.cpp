@@ -93,7 +93,6 @@ Java_com_example_jni_activity_AdvancedActivity_nativeMethod(JNIEnv *env, jobject
 }
 
 //TODO 引用类型进阶
-
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_example_jni_activity_AdvancedActivity_nativeMethod2(JNIEnv *env, jobject thiz,
@@ -108,6 +107,7 @@ Java_com_example_jni_activity_AdvancedActivity_nativeMethod2(JNIEnv *env, jobjec
 
     //获取 Persion 的 jclass
     jclass j_persion_class = env->FindClass("com/example/jni/bean/Persion");
+
     //获取 Persion 的 jobj //AllocObject只实例化对象,不会调用构造函数
     jobject j_persion_job = env->AllocObject(j_persion_class);
 
@@ -123,15 +123,11 @@ Java_com_example_jni_activity_AdvancedActivity_nativeMethod2(JNIEnv *env, jobjec
     env->CallVoidMethod(dog_jobj, jmethodId, j_persion_job);
 
     //释放引用类型 class 和 job 都建议释放
-    env->DeleteGlobalRef(j_dog_class);
-    env->DeleteGlobalRef(j_persion_class);
-    env->DeleteGlobalRef(j_persion_job);
-
-    //String 类型也得释放
-//    jstring str = env->NewStringUTF("模拟释放数据");
-//    //释放 String类型
-//    env->ReleaseStringUTFChars(str, NULL);
+    env->DeleteLocalRef(j_dog_class);
+    env->DeleteLocalRef(j_persion_class);
+    env->DeleteLocalRef(j_persion_job);
 }
+
 
 //TODO 调用 Dog 的构造方法
 extern "C"

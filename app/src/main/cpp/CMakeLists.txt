@@ -1,49 +1,53 @@
-# For more information about using CMake with Android Studio, read the
-# documentation: https://d.android.com/studio/projects/add-native-code.html
-
-# Sets the minimum version of CMake required to build the native library.
-
-cmake_minimum_required(VERSION 3.10.2)
-
-# Declares and names the project.
+# 最低支持版本
+cmake_minimum_required(VERSION 3.4.1)
 
 project("jni")
 
-# Creates and names a library, sets it as either STATIC
-# or SHARED, and provides the relative paths to its source code.
-# You can define multiple libraries, and CMake builds them for you.
-# Gradle automatically packages shared libraries with your APK.
+# TODO 第一步:引入 inc
+include_directories("inc")
+
+# 批量导入所有源文件
+file(GLOB allCPP *.c *.h *.cpp)
 
 # cpp 文件在这里添加
-add_library( # Sets the name of the library.
-        #[[native-simple-lib]] native-advanced-lib
+add_library(
+       # native-simple-lib.cpp # TODO JNI 基本使用
+        #native-advanced-lib.cpp # TODO JNI 进阶
+        native-qq-voice-lib # TODO QQ 语音实战
+        SHARED # 动态库 (STATIC 静态库)
+        ${allCPP}
+)
 
-             # Sets the library as a shared library.
-             SHARED
+# TODO 第二步:导入库文件
+# CMAKE_CXX_FLAGS 保留之前内容
+# CMAKE_SOURCE_DIR CMakeLists.txt 所在路径
+# /../推出到上一级
+# CMAKE_ANDROID_ARCH_ABI 获取当前手机 CPU 架构
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -L${CMAKE_SOURCE_DIR}/../jniLibs/${CMAKE_ANDROID_ARCH_ABI}")
 
-             # Provides a relative path to your source file(s).
-        native-simple-lib.cpp
+# 寻找 NDK 的库
+find_library(
+        log-lib # 只是一个名字 不用在意
+        log # 去寻找 liblog.so(<android.log.h>) 库
+)
 
-        native-advanced-lib.cpp)
+# 链接具体的库到我们的 libXX.io
+target_link_libraries(
+        # native-simple-lib.cpp # TODO JNI 基本使用
+        #native-advanced-lib.cpp # TODO JNI 进阶
+        native-qq-voice-lib # TODO QQ 语音实战
 
-# Searches for a specified prebuilt library and stores the path as a
-# variable. Because CMake includes system libraries in the search path by
-# default, you only need to specify the name of the public NDK library
-# you want to add. CMake verifies that the library exists before
-# completing its build.
+        ${log-lib} # 自动寻找  # 具体的库 链接到 libnative-lib.so里面去
+        # TODO 配置 fmod
+        fmod # 具体的库 链接到 libnative-lib.so里面去
+        fmodL # 具体的库 链接到 libnative-lib.so里面去
+)
 
-find_library( # Sets the name of the path variable.
-              log-lib
+#CPU 架构模式:
+# 1.arm64-v8a     现在基本 Android 以这个为主
+# 2.armeabi-v7a   2015 早期的手机
+# 3.armeabi       2011 基本没人用
+# 4.x86 5.x86_64  模拟器
 
-              # Specifies the name of the NDK library that
-              # you want CMake to locate.
-              log )
-
-# Specifies libraries CMake should link to your target library. You
-# can link multiple libraries, such as libraries you define in this
-# build script, prebuilt third-party libraries, or system libraries.
-
-target_link_libraries( # Specifies the target library.
-        #[[native-simple-lib]] native-advanced-lib
-
-                       ${log-lib} )
+# 如何知道自己手机 CUP 架构(终端输入):
+# adb shell getprop ro.product.cpu.abi

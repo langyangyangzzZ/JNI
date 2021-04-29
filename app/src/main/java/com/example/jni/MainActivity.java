@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.jni.activity.AdvancedActivity;
+import com.example.jni.activity.QQVoiceActivity;
 import com.example.jni.activity.SimpleActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClick2(View view) {
         srartActivity(AdvancedActivity.class);
+    }
+
+    /**
+     * QQ 语音进阶
+     * @param view
+     */
+    public void onClick3(View view) {
+        srartActivity(QQVoiceActivity.class);
     }
 
     /**

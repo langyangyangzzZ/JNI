@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JNI">
-        <activity android:name=".activity.AdvancedActivity"></activity>
+        <activity android:name=".activity.QQVoiceActivity"></activity>
+        <activity android:name=".activity.AdvancedActivity" />
         <activity android:name=".activity.SimpleActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
