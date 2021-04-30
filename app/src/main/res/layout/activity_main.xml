@@ -2,26 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-   <Button
-       android:text="JNI 简单入门(属性修改,方法简单调用等)"
-       android:onClick="onClick1"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick1"
+        android:text="JNI 简单入门(属性修改,方法简单调用等)" />
 
-   <Button
-       android:text="JNI 进阶(基本数据类型,引用数据类型传值等)"
-       android:onClick="onClick2"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
-   <Button
-       android:text="QQ 语音进阶"
-       android:onClick="onClick3"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick2"
+        android:text="JNI 进阶(基本数据类型,引用数据类型传值等)" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick3"
+        android:text="QQ 语音进阶" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick4"
+        android:text="JNI 线程与动态注册" />
 
 </LinearLayout>

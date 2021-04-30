@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.jni.activity.AdvancedActivity;
 import com.example.jni.activity.QQVoiceActivity;
 import com.example.jni.activity.SimpleActivity;
+import com.example.jni.activity.ThreadActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClick3(View view) {
         srartActivity(QQVoiceActivity.class);
+    }
+
+    /**
+     * JNI 线程与动态注册
+     * @param view
+     */
+    public void onClick4(View view) {
+        srartActivity(ThreadActivity.class);
     }
 
     /**

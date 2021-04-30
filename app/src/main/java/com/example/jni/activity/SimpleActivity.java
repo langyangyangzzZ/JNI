@@ -29,7 +29,7 @@ public class SimpleActivity extends AppCompatActivity {
     public String name = "张三";
 
     public native String getString();
-    public native String getString2();
+//    public native String getString2();
 
     //JNI 交互操作
 
