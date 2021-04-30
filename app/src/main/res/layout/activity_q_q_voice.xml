@@ -1,55 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.QQVoiceActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:text="我知道遇见你很不容易,错过了会很可惜,我不希望每天都是回忆,我希望每天都是你,我爱你"
-        android:textSize="30dp"
-        android:gravity="center"
-        android:padding="30dp"
+    <data class="QQBinDing">
+
+        <import type="com.example.jni.bean.QQBean" />
+
+        <variable
+            name="bean1"
+            type="QQBean" />
+
+        <variable
+            name="bean2"
+            type="QQBean" />
+
+        <variable
+            name="bean3"
+            type="QQBean" />
+
+        <variable
+            name="bean4"
+            type="QQBean" />
+
+        <variable
+            name="bean5"
+            type="QQBean" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick1"
-        android:text="原生" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.QQVoiceActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick2"
-        android:text="萝莉音" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick3"
-        android:text="大叔音" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick4"
-        android:text="惊悚" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="30dp"
+                    android:text="我知道遇见你很不容易,错过了会很可惜,我不希望每天都是回忆,我希望每天都是你,我爱你"
+                    android:textSize="30dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick5"
-        android:text="搞怪" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick6"
-        android:text="回音" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onClick1"
+                        android:text="原生" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onClick2"
+                        android:text="萝莉音" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onClick3"
+                        android:text="大叔音" />
 
 
+                </LinearLayout>
 
-</LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onClick4"
+                        android:text="惊悚" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onClick5"
+                        android:text="搞怪" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onClick6"
+                        android:text="回音" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{bean1.getName}" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:max="@{bean1.getMax}"
+                        android:min="@{bean1.getMin}"
+                        android:progress="@{bean1.getValue}" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(bean1.getValue)}" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{bean2.getName}" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:max="@{bean2.getMax}"
+                        android:min="@{bean2.getMin}"
+                        android:progress="@{bean2.getValue}" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(bean2.getValue)}" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{bean3.getName}" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:max="@{bean3.getMax}"
+                        android:min="@{bean3.getMin}"
+                        android:progress="@{bean3.getValue}" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(bean3.getValue)}" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{bean4.getName}" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:max="@{bean4.getMax}"
+                        android:min="@{bean4.getMin}"
+                        android:progress="@{bean4.getValue}" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(bean4.getValue)}" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{bean5.getName}" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:max="@{bean5.getMax}"
+                        android:min="@{bean5.getMin}"
+                        android:progress="@{bean5.getValue}" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(bean5.getValue)}" />
+
+
+                </LinearLayout>
+
+                <Button
+                    android:onClick="onClick7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="播放调节后的音频" />
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

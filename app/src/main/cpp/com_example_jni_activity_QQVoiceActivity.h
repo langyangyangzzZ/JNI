@@ -8,6 +8,8 @@
 #include <fmod.hpp>//fmod 必须导入
 #include <string>
 #include <android/log.h>
+#include <unistd.h>
+#include <pthread.h>
 
 //TODO 打印
 #define TAG "native 层"
@@ -35,8 +37,14 @@ extern "C" {
 #define com_example_jni_activity_QQVoiceActivity_MODE_KONGLING 5L
 
 JNIEXPORT void JNICALL
-Java_com_example_jni_activity_QQVoiceActivity_showVoice(JNIEnv *, jobject , jint ,
-                                                        jstring );
+Java_com_example_jni_activity_QQVoiceActivity_showVoice(JNIEnv *, jobject, jint,
+                                                        jstring);
+
+JNIEXPORT void JNICALL
+Java_com_example_jni_activity_QQVoiceActivity_showCustomVoice(JNIEnv *, jobject,
+                                                              jstring, jint,
+                                                              jint, jint,
+                                                              jint, jint);
 
 #ifdef __cplusplus
 }
