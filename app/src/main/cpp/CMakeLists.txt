@@ -14,7 +14,8 @@ add_library(
        # native-simple-lib.cpp # TODO JNI 基本使用
         #native-advanced-lib.cpp # TODO JNI 进阶
         #native-qq-voice-lib.cpp # TODO QQ 语音实战
-        native-thread-lib # TODO JNI 线程与动态注册
+        # native-thread-lib # TODO JNI 线程与动态注册
+        native-exception-lib # TODO 异常处理
 
         SHARED # 动态库 (STATIC 静态库)
         ${allCPP}
@@ -38,7 +39,8 @@ target_link_libraries(
         # native-simple-lib # TODO JNI 基本使用
         #native-advanced-lib # TODO JNI 进阶
         #native-qq-voice-lib. # TODO QQ 语音实战
-        native-thread-lib # TODO JNI 线程与动态注册
+        # native-thread-lib # TODO JNI 线程与动态注册
+        native-exception-lib # TODO 异常处理
 
         ${log-lib} # 自动寻找  # 具体的库 链接到 libnative-lib.so里面去
         # TODO 配置 fmod

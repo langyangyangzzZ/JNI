@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.jni.activity.AdvancedActivity;
+import com.example.jni.activity.ExceptionActivity;
 import com.example.jni.activity.QQVoiceActivity;
 import com.example.jni.activity.SimpleActivity;
 import com.example.jni.activity.ThreadActivity;
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClick4(View view) {
         srartActivity(ThreadActivity.class);
+    }/**
+     * JNI 线程与动态注册
+     * @param view
+     */
+    public void onClick5(View view) {
+        srartActivity(ExceptionActivity.class);
     }
 
     /**

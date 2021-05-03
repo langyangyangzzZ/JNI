@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ThreadActivity" />
+        <activity android:name=".activity.ExceptionActivity" />
     </application>
 
 </manifest>
