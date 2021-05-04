@@ -28,13 +28,6 @@ android {
         }
     }
 
-    //这段代码是自带的
-//    sourceSets {
-//        main {
-//            jniLibs.srcDirs = ['libs']
-//        }
-//    }
-
     dataBinding {
         enabled = true
     }
@@ -56,6 +49,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    ndkVersion '22.1.7171670'
 
 }
 

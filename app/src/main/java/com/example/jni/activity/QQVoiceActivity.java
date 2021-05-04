@@ -67,8 +67,6 @@ public class QQVoiceActivity extends AppCompatActivity implements SeekBar.OnSeek
         binding.seekBar3.setOnSeekBarChangeListener(this);
         binding.seekBar4.setOnSeekBarChangeListener(this);
         binding.seekBar5.setOnSeekBarChangeListener(this);
-
-
     }
 
     /**

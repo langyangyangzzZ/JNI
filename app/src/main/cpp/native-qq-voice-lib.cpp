@@ -7,7 +7,6 @@
 //FMOD 命名空间
 using namespace FMOD;
 
-pthread_t pthread;
 
 //线程结果回调
 
@@ -35,7 +34,6 @@ Java_com_example_jni_activity_QQVoiceActivity_showVoice(JNIEnv *env, jobject thi
 
     //TODO 第一步,创建系统
     System_Create(&system);
-
 
     //TODO 第二步,系统初始化
     /**
